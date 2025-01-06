@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .tracking-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h5 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .header span {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .arrival-info p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 30px 0;
+    }
+
+    .progress-step {
+      position: relative;
+      text-align: center;
+      
+    }
+
+    .progress-step::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border-radius: 00%;
+      background: rgba(185, 240, 185, 0.205);
+      display: inline-block;
+      z-index: 10;
+    }
+
+    .progress-step.active::before {
+      /* background: #007bff; */
+      box-shadow: 0 0 20px rgba(64, 255, 0, 0.562);
+      content: "✅";
+    
+    }
+
+    .progress-step::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 4px;
+      background: #d3d9e6;
+      border: 1PX solid black;
+      z-index: -1;
+    }
+
+    .progress-step:last-child::after {
+      display: none;
+    }
+
+    .progress-step.active ~ .progress-step::after {
+      background: #007bff;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .icon-content {
+      text-align: center;
+      flex: 1;
+    }
+
+    .icon-content img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .icon-content p {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .arrival-info {
+        margin-top: 10px;
+      }
+
+      .icons {
+        flex-wrap: wrap;
+      }
+
+      .icon-content {
+        flex: 0 0 50%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tracking-card">
+      <div class="header">
+        <div class="order-info">
+          <h5>ORDER <span>#S7R7E3E3</span></h5>
+        </div>
+        <div class="arrival-info">
+          <p>Expected Arrival: <span>01/12/19</span></p>
+          <p>Tracking ID: <span class="bold">234094567242423422898</span></p>
+        </div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-step active" ></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+      </div>
+
+      <div class="icons">
+        <div class="icon-content">
+          <img src="asests/order-processed.png" alt="Processed">
+          <p>Order Processed</p>
+        </div>
+        <div class="icon-content">
+          <img src="asests/order-shipped.png" alt="Shipped">
+          <p>Order Shipped</p>
+        </div>
+        <div class="icon-content">
+          <img src="asests/order-enroute.png" alt="En Route">
+          <p>Order En Route</p>
+        </div>
+        <div class="icon-content">
+          <img src="asests/order-arrived.png" alt="Arrived">
+          <p>Order Arrived</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
